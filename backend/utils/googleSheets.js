@@ -40,7 +40,9 @@ export const saveToSheet = async (data) => {
           data.suggestion,
           data.liked,
           data.recommend,
-          new Date().toLocaleString(),
+          new Date().toLocaleDateString("en-IN", {
+  timeZone: "Asia/Kolkata",
+})
         ],
       ],
     },
