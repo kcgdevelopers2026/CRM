@@ -242,7 +242,9 @@ const handleChange = (
   <select
     className={styles.languageSelect}
     value={language}
-    onChange={(e) => setLanguage(e.target.value)}
+    onChange={(e) =>
+  setLanguage(e.target.value as "English" | "Tamil")
+}
   >
     <option value="English">English</option>
     <option value="Tamil">தமிழ்</option>
