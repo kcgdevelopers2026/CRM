@@ -434,7 +434,7 @@ const handleChange = (
   <option value="Vellore" />
   <option value="Viluppuram" />
   <option value="Virudhunagar" />
-  <option value="Other State" />
+  <option value="Other State (Outside Tamil Nadu)" />
 </datalist>
 </div>
 

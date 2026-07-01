@@ -2,13 +2,13 @@ import { saveToSheet } from "../../utils/googleSheets.js";
 
 export const submitFeedback = async (req, res) => {
   try {
-   const {
+
+    const {
   customerName,
   phone,
   dob,
   profession,
   district,
-  otherState,
   branch,
   employee,
   purchased,
@@ -17,6 +17,7 @@ export const submitFeedback = async (req, res) => {
   liked,
   recommend,
 } = req.body;
+  
 
     if (!customerName || !phone) {
       return res.status(400).json({
@@ -25,13 +26,12 @@ export const submitFeedback = async (req, res) => {
       });
     }
 
-   const data = {
+    const data = {
   customerName,
   phone,
   dob,
   profession,
   district,
-  otherState,
   branch,
   employee,
   purchased,
@@ -40,7 +40,7 @@ export const submitFeedback = async (req, res) => {
   liked,
   recommend,
 };
-
+   
     await saveToSheet(data);
 
     return res.json({

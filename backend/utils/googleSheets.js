@@ -24,17 +24,16 @@ export const saveToSheet = async (data) => {
 
   await googleSheets.spreadsheets.values.append({
     spreadsheetId,
-    range: `${sheetName}!A:L`,
+    range: `${sheetName}!A:M`,
     valueInputOption: "USER_ENTERED",
     requestBody: {
-     values: [
+  values: [
   [
     data.customerName,
     data.phone,
     data.dob,
     data.profession,
     data.district,
-    data.otherState,
     data.branch,
     data.employee,
     data.purchased,
