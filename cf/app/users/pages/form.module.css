@@ -1,12 +1,15 @@
 
+
 .page {
   min-height: 100vh;
   background: linear-gradient(180deg, #fffdf8 0%, #fff7eb 100%);
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  position: relative;
+  align-items: flex-start;
+
+  padding: 0;            /* IMPORTANT: remove side shift */
+  margin: 0;
+
   overflow-x: hidden;
   font-family: "Segoe UI", sans-serif;
 }
@@ -79,12 +82,26 @@
 .toggleBtn {
   flex: 1;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 2px solid #c9b400;
   border-radius: 10px;
-  background: white;
+
+  background: linear-gradient(
+    135deg,
+    #fffde7 0%,
+    #fff9c4 50%,
+    #fff59d 100%
+  );
+
   cursor: pointer;
   font-size: 14px;
-  transition: 0.2s;
+  transition: all 0.2s ease;
+
+  /* soft shine */
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+
+  color: #4a3b00;
 }
 
 .toggleBtn:hover {
@@ -152,12 +169,65 @@
 }
 
 .formLabel {
-  display: block;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 12px;
   margin-top: 18px;
   margin-bottom: 8px;
-  color: #6a4d00;
+
+  color: #3a2a00;
   font-weight: 600;
   font-size: 15px;
+  letter-spacing: 0.3px;
+
+  /* Gold gradient */
+  background: linear-gradient(
+    135deg,
+    #fff6b0 0%,
+    #ffd700 25%,
+    #ffb300 50%,
+    #ffe680 75%,
+    #fff3a0 100%
+  );
+
+  border: 1px solid rgba(255, 215, 0, 0.8);
+
+  /* Shine effect */
+  position: relative;
+  overflow: hidden;
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.15),
+    inset 0 1px 3px rgba(255, 255, 255, 0.6);
+
+  backdrop-filter: blur(4px);
+}
+
+/* moving shine overlay */
+.formLabel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 130%;
+  }
 }
 
 .inputBox {
@@ -324,37 +394,204 @@
 
 .backBtn {
   flex: 1;
-  border: none;
-  border-radius: 15px;
-  padding: 16px;
-  background: #ececec;
+  border: 2px solid rgba(36, 30, 8, 0.6);
+  border-radius: 14px;
+  padding: 14px;
+
+  font-size: 15px;
+  font-weight: 800;
+  color: #423411;
+
   cursor: pointer;
-  font-size: 16px;
+  transition: all 0.3s ease;
+
+  /* Gold + glossy base */
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fff6cc 25%,
+    #f5d76e 50%,
+    #fff6cc 75%,
+    #ffffff 100%
+  );
+
+  position: relative;
+  overflow: hidden;
+
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.12),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.backBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+}
+
+.backBtn:hover::before {
+  left: 130%;
+  transition: 0.6s;
+}
+
+.logoBanner {
+  position: relative;
+
+  width: calc(100% + 40px);   /* removes card padding gap */
+  height: 180px;
+
+  margin: -28px -20px 20px;   /* pulls into card edges */
+
+  overflow: hidden;
+
+  border-radius: 24px 24px 0 0;
+
+  background: #fff;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.heroBanner {
+  position: relative;
+
+  width: calc(100% + 40px);
+  height: 190px;
+
+  margin: -28px -20px 25px;
+
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* background image */
+.heroImg {
+  object-fit: cover;
+  margin-top: 5px
+}
+
+/* language dropdown overlay */
+.langBox {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+.languageSelect {
+  padding: 8px 12px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+
+  font-size: 13px;
   font-weight: 600;
-  transition: .3s;
+
+  outline: none;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+  cursor: pointer;
+}
+
+.logoImg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* soft premium hover (not flashy) */
+.logoWrap:hover .logoImg {
+  transform: scale(1.02);
+  filter: brightness(1.03);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .logoWrap {
+    height: 110px;
+    max-width: 100%;
+  }
 }
 
 .backBtn:hover {
-  background: #dddddd;
+  transform: translateY(-2px);
+  border-color: #c9a227;
+
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.18),
+    inset 0 2px 6px rgba(255, 255, 255, 0.95);
 }
 
-.nextBtn{
+.nextBtn {
+  width: 250px;
+  padding: 12px 16px;
+  margin-left: 20px;
 
-    width: 200px;
+  border: 1px solid #c9a227;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #fff2b3 0%,
+    #ffd700 40%,
+    #d4af37 70%,
+    #fff2b3 100%
+  );
+
+  color: #0c0900;
+  font-size: 19px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.6);
+
+  position: relative;
+  overflow: hidden;
 }
 
-.nextBtn,
 .submitBtn {
   flex: 2;
-  border: none;
-  border-radius: 15px;
-  padding: 16px;
+  padding: 14px 16px;
+
+  border: 2px solid #312704;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #f6e27a, #d4a819);
+
+  color: #2b1b00;
+  font-size: 16px;
+  font-weight: 600;
+
   cursor: pointer;
-  color: #fff;
-  font-size: 17px;
-  font-weight: 700;
-  background: linear-gradient(135deg,#efc14b,#a56f09);
-  transition: .3s;
+  transition: 0.2s ease;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.submitBtn:hover {
+  background: linear-gradient(135deg, #ffe58a, #c9a227);
 }
 
 .nextBtn:hover,

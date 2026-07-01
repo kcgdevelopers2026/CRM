@@ -248,24 +248,30 @@ const handleChange = (
 
       <div className={styles.card}>
 
-        <div className={styles.topBar}>
-  <select
-    className={styles.languageSelect}
-    value={language}
-    onChange={(e) =>
-  setLanguage(e.target.value as "English" | "Tamil")
-}
-  >
-    <option value="English">English</option>
-    <option value="Tamil">தமிழ்</option>
-  </select>
+      <div className={styles.heroBanner}>
+  
+  <div className={styles.langBox}>
+    <select
+      className={styles.languageSelect}
+      value={language}
+      onChange={(e) =>
+        setLanguage(e.target.value as "English" | "Tamil")
+      }
+    >
+      <option value="English">English</option>
+      <option value="Tamil">தமிழ்</option>
+    </select>
+  </div>
+
+  <Image
+    src={logo}
+    alt="banner"
+    fill
+    priority
+    className={styles.heroImg}
+  />
+
 </div>
-
-
-        
-        <Image src={logo} alt="logo" className={styles.logos}/>
-
-
         <div className={styles.logoArea}>
 
           <h1>Customer Feedback</h1>
