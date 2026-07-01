@@ -2,19 +2,21 @@ import { saveToSheet } from "../../utils/googleSheets.js";
 
 export const submitFeedback = async (req, res) => {
   try {
-    const {
-      customerName,
-      phone,
-      dob,
-      profession,
-      branch,
-      employee,
-      purchased,
-      rating,
-      suggestion,
-      liked,
-      recommend,
-    } = req.body;
+   const {
+  customerName,
+  phone,
+  dob,
+  profession,
+  district,
+  otherState,
+  branch,
+  employee,
+  purchased,
+  rating,
+  suggestion,
+  liked,
+  recommend,
+} = req.body;
 
     if (!customerName || !phone) {
       return res.status(400).json({
@@ -23,19 +25,21 @@ export const submitFeedback = async (req, res) => {
       });
     }
 
-    const data = {
-      customerName,
-      phone,
-      dob,
-      profession,
-      branch,
-      employee,
-      purchased,
-      rating,
-      suggestion,
-      liked,
-      recommend,
-    };
+   const data = {
+  customerName,
+  phone,
+  dob,
+  profession,
+  district,
+  otherState,
+  branch,
+  employee,
+  purchased,
+  rating,
+  suggestion,
+  liked,
+  recommend,
+};
 
     await saveToSheet(data);
 

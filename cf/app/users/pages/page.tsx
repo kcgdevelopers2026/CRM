@@ -25,6 +25,7 @@ export default function FeedbackPage() {
     phone: "",
     dob: "",
     profession: "",
+    district: "", 
     branch: "",
     employee: "",
     product: "",
@@ -54,6 +55,10 @@ const text =
 
         profession: "Profession",
         professionPlaceholder: "Search Profession",
+
+         district: "District",
+districtPlaceholder: "Search District",
+
 
         branch: "Branch",
         branchPlaceholder: "Select Branch",
@@ -139,6 +144,11 @@ const text =
         professionPlaceholder:
           "தொழிலை தேடவும்",
 
+
+          district: "மாவட்டம்",
+districtPlaceholder: "மாவட்டத்தை தேடவும்",
+
+         
         branch: "கிளை",
 
         branchPlaceholder:
@@ -368,6 +378,65 @@ const handleChange = (
         <option value="Others" />
       </datalist>
     </div>
+
+    <label className={styles.formLabel}>
+  {text.district}
+</label>
+
+<div className={styles.inputBox}>
+  <FiHome />
+
+  <input
+    list="districtList"
+    name="district"
+    placeholder={text.districtPlaceholder}
+    value={form.district}
+    onChange={handleChange}
+    required
+  />
+
+  <datalist id="districtList">
+  <option value="Ariyalur" />
+  <option value="Chengalpattu" />
+  <option value="Chennai" />
+  <option value="Coimbatore" />
+  <option value="Cuddalore" />
+  <option value="Dharmapuri" />
+  <option value="Dindigul" />
+  <option value="Erode" />
+  <option value="Kallakurichi" />
+  <option value="Kanchipuram" />
+  <option value="Kanyakumari" />
+  <option value="Karur" />
+  <option value="Krishnagiri" />
+  <option value="Madurai" />
+  <option value="Mayiladuthurai" />
+  <option value="Nagapattinam" />
+  <option value="Namakkal" />
+  <option value="Nilgiris" />
+  <option value="Perambalur" />
+  <option value="Pudukkottai" />
+  <option value="Ramanathapuram" />
+  <option value="Ranipet" />
+  <option value="Salem" />
+  <option value="Sivagangai" />
+  <option value="Tenkasi" />
+  <option value="Thanjavur" />
+  <option value="Theni" />
+  <option value="Thoothukudi" />
+  <option value="Tiruchirappalli" />
+  <option value="Tirunelveli" />
+  <option value="Tirupathur" />
+  <option value="Tiruppur" />
+  <option value="Tiruvallur" />
+  <option value="Tiruvannamalai" />
+  <option value="Tiruvarur" />
+  <option value="Vellore" />
+  <option value="Viluppuram" />
+  <option value="Virudhunagar" />
+  <option value="Other State" />
+</datalist>
+</div>
 
     <label className={styles.formLabel}>
       {text.branch}

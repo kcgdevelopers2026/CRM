@@ -27,24 +27,26 @@ export const saveToSheet = async (data) => {
     range: `${sheetName}!A:L`,
     valueInputOption: "USER_ENTERED",
     requestBody: {
-      values: [
-        [
-          data.customerName,
-          data.phone,
-          data.dob,
-          data.profession,
-          data.branch,
-          data.employee,
-          data.purchased,
-          data.rating,
-          data.suggestion,
-          data.liked,
-          data.recommend,
-          new Date().toLocaleDateString("en-IN", {
-  timeZone: "Asia/Kolkata",
-})
-        ],
-      ],
+     values: [
+  [
+    data.customerName,
+    data.phone,
+    data.dob,
+    data.profession,
+    data.district,
+    data.otherState,
+    data.branch,
+    data.employee,
+    data.purchased,
+    data.rating,
+    data.suggestion,
+    data.liked,
+    data.recommend,
+    new Date().toLocaleDateString("en-IN", {
+      timeZone: "Asia/Kolkata",
+    }),
+  ],
+],
     },
   });
 };
