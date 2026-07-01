@@ -674,19 +674,20 @@ const handleChange = (
 
       // reset form
       setForm({
-        customerName: "",
-        phone: "",
-        dob: "",
-        profession: "",
-        branch: "",
-        employee: "",
-        product: "",
-        purchased: "",
-        rating: 0,
-        suggestion: "",
-        liked: "",
-        recommend: "yes",
-      });
+  customerName: "",
+  phone: "",
+  dob: "",
+  profession: "",
+  district: "",   // <-- Add this
+  branch: "",
+  employee: "",
+  product: "",
+  purchased: "",
+  rating: 0,
+  suggestion: "",
+  liked: "",
+  recommend: "yes",
+});
     } else {
       alert("Failed to submit");
     }
